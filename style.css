@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root 
+{
+    font-size: 62.5%;
+}
+
+body 
+{
+    font-size: 1.6rem;
+    background-color: #000;
+}
+
+body,
+button 
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+#app 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem;
+    margin: 0 auto;
+}
+
+header 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8.5rem;
+    width: 100%;
+}
+
+.sr-only 
+{
+    position: absolute;
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+.search 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+}
+
+.input-search 
+{
+    color: #FFF;
+    padding: 1.6rem;
+    background: #06181C;
+    width: clamp(20rem, 5vw + 5rem, 48rem);
+    height: 4.8rem;
+    border-radius: .5rem;
+    border: none;
+    box-shadow: 0 1rem 1rem -.7rem rgba(255, 255, 255, 0.1);
+}
+
+.input-search::placeholder 
+{
+    color: #7C7C8A;
+}
+
+.search button 
+{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    height: 4.8rem;
+    width: 17rem;
+    padding: 1.2rem 3.2rem;
+    background: #065E7C;
+    color: #FFF;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.search button:hover
+{
+    background: #FFF;
+    color: #065E7C;
+}
+
+.search button:hover svg path 
+{
+    fill: #065E7C;
+}
+
+table 
+{
+    color: #E1E1E6;
+    max-width: 70rem;
+    width: 100%;
+    border-radius: 1.2rem;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem -1.2rem rgba(255, 255, 255, 0.1);
+}
+
+table thead
+{
+    background-color: #092D38;
+}
+
+thead th 
+{
+    padding: 1.6rem 2.4rem 1.6rem;
+    text-align: left;
+}
+
+thead th:first-child 
+{
+    border-radius: 1.2rem 0 0 0;
+}
+
+thead th:last-child 
+{
+    border-radius: 0 1.2rem 0 0;
+}
+
+tbody 
+{
+    border: 2px solid #030B0D;
+
+}
+
+tbody tr:nth-child(even) 
+{
+    background: #030B0D;
+}
+
+tbody tr:nth-child(odd) 
+{
+    background: #06181C;
+}
+
+tbody td 
+{
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+td.user 
+{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+td.user img 
+{
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+td.user a 
+{
+    text-decoration: none;
+    color: #E1E1E6;
+}
+
+td.user a span 
+{
+    font-weight: 400;
+}
+
+td button 
+{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #F75A68;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+}
+
+tbody::-webkit-scrollbar 
+{
+    width: .6rem;
+    cursor: pointer;
+}
+
+tbody::-webkit-scrollbar-track 
+{
+    background: transparent;
+}
+
+tbody::-webkit-scrollbar-thumb 
+{
+    cursor: pointer;
+    background: #4A808C;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.empty 
+{
+    max-width: 70rem;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4E5455;
+    gap: 6rem;
+}
+
+.empty .empty-content 
+{
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+}
+
+.empty-content p 
+{
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.hide 
+{
+    display: none;
+    transition: display .5s ease;
+}
+
+@media (max-width: 780px) 
+{
+    header {
+        flex-direction: column;
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 500px) 
+{
+
+    .search {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search button 
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .repositories,
+    .followers,
+    thead tr th:nth-child(2),
+    thead tr th:nth-child(3) 
+    {
+        display: none;
+    }
+
+    .empty 
+    {
+        margin-top: 1rem;
+        height: auto;
+        width: auto;
+    }
+
+
+    .empty .empty-content 
+    {
+        display: flex;
+        align-items: center;
+        gap: 6rem;
+    }
+
+    .empty-content p 
+    {
+        font-size: 1.6rem;
+    }
+
+    tbody td 
+    {
+        font-size: 1.8rem;
+    }
+}
